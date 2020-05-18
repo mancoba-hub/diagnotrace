@@ -46,5 +46,35 @@ namespace DiagnoTrace.Views
 
             viewModel.IsBusy = true;
         }
+
+        /// <summary>
+        /// Called when [next clicked].
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+        private void OnNextClicked(object sender, EventArgs e)
+        {
+            //var contact = new Contact
+            //{
+            //    Name = "Jane Doe",
+            //    Age = 30,
+            //    Occupation = "Developer",
+            //    Country = "USA"
+            //};
+
+            var secondQuestionPage = new SecondQuestionPage();
+            secondQuestionPage.BindingContext = new { Gender = lblGender.Text, Age = txtAge.Text };
+            Navigation.PushAsync(secondQuestionPage);
+        }
+
+        private void OnGenderButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            //RadioButton radioButton = sender as RadioButton;
+            //bool isChecked = radioButton.IsChecked;
+            //string who = radioButton.Text;
+            //if (((RadioButton)sender).Checked)
+            //{ 
+            //}
+        }
     }
 }

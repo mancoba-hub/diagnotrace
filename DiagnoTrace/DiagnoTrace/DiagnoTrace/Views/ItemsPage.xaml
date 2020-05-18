@@ -41,7 +41,18 @@
 								</FormattedString>
 							</Label.FormattedText>
 						</Label>
-					<Label>
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Current Location" FontSize="Medium" />
+					</StackLayout>
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Longitude: " FontSize="Medium" />
+						<Label x:Name="lblLongitude" FontSize="Medium" />						
+					</StackLayout>
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Latitude: " FontSize="Medium" />
+						<Label x:Name="lblLatitude" FontSize="Medium" />
+					</StackLayout>
+					<!--<Label>
 						<Label.FormattedText>
 							<FormattedString>
 								<FormattedString.Spans>
@@ -50,7 +61,7 @@
 								</FormattedString.Spans>
 							</FormattedString>
 						</Label.FormattedText>
-					</Label>
+					</Label>-->
 				</StackLayout>
 				</ScrollView>
 			</Grid>

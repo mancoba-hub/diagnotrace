@@ -5,11 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DiagnoTrace.Views.QuestionsPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Questions - placeholder"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Please indicate your gender: " FontSize="Medium" />
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label x:Name="lblGender" Text=" " FontSize="Medium" />
+				<!--<RadioButton x:Name="rdMale" Text="Male" GroupName="grpGender"  IsChecked="True"/>
+				<RadioButton x:Name="rdFemale" Text="Female" GroupName="grpGender"  />-->
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Age: " FontSize="Medium" />				
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Entry x:Name="txtAge" Keyboard="Numeric" />
+			</StackLayout>
+			<Button x:Name="btnNext" Text="Next" Clicked="OnNextClicked" HorizontalOptions="Center"/>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>
+
+<!--CheckedChanged="OnGenderButtonCheckedChanged"-->
