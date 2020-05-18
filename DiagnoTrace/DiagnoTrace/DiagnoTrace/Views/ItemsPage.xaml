@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="DiagnoTrace.Views.ItemsPage"
+						 xmlns:vm="clr-namespace:DiagnoTrace.ViewModels"
+             Title="{Binding Title}"
+             x:Name="BrowseItemsPage">
+
+			<ContentPage.BindingContext>
+				<vm:ItemsViewModel />
+			</ContentPage.BindingContext>
+
+			<ContentPage.Resources>
+				<ResourceDictionary>
+					<Color x:Key="Primary">#2196F3</Color>
+					<Color x:Key="Accent">#96d1ff</Color>
+					<Color x:Key="LightTextColor">#999999</Color>
+				</ResourceDictionary>
+			</ContentPage.Resources>
+
+		<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemCommand}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+
+				<ScrollView Grid.Row="1">
+					<StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+						<Label FontSize="22">
+							<Label.FormattedText>
+								<FormattedString>
+									<FormattedString.Spans>
+										<Span Text="DiagnoTrace" FontAttributes="Bold" FontSize="22" />
+										<Span Text=" " />
+										<Span Text="1.0" ForegroundColor="{StaticResource LightTextColor}" />
+									</FormattedString.Spans>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					<Label>
+						<Label.FormattedText>
+							<FormattedString>
+								<FormattedString.Spans>
+									<Span Text="{Binding Location}" FontSize="Medium" FontAttributes="Bold"/>
+									<Span Text=" " />
+								</FormattedString.Spans>
+							</FormattedString>
+						</Label.FormattedText>
+					</Label>
+				</StackLayout>
+				</ScrollView>
+			</Grid>
+		</RefreshView>
+	
+</ContentPage>
+
+<!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>-->
+
+<!--<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+        <CollectionView x:Name="ItemsCollectionView"
+                ItemsSource="{Binding Items}">
+            <d:CollectionView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>First Item</x:String>
+                    <x:String>Second Item</x:String>
+                    <x:String>Third Item</x:String>
+                    <x:String>Fourth Item</x:String>
+                    <x:String>Fifth Item</x:String>
+                    <x:String>Sixth Item</x:String>
+                </x:Array>
+            </d:CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Text}" 
+                                d:Text="{Binding .}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" />
+                        <Label Text="{Binding Description}" 
+                                d:Text="Item descripton"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                FontSize="13" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnItemSelected"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>-->
+	
+<!--<Label>
+								<Label.FormattedText>
+									<FormattedString>
+										<FormattedString.Spans>
+											<Span Text="The confidentiality of your data is important for us. We comply with the current regulations on data protection. For more information, please read the legal terms and conditions carefully." />
+											<Span Text=" " />
+										</FormattedString.Spans>
+									</FormattedString>
+								</Label.FormattedText>
+							</Label>-->
+<!--<Button Margin="0,10,0,0" Text="Learn more"
+															Command="{Binding OpenWebCommand}"
+															BackgroundColor="{StaticResource Primary}"
+															TextColor="White" />-->

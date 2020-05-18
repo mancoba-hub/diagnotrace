@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Title="{Binding Title}"
+             x:Class="DiagnoTrace.Views.SettingsPage">
+	
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+	
+		<!--<ContentPage.ToolbarItems>
+			<ToolbarItem Text="Save" Clicked="SaveSettingsClicked" />
+    </ContentPage.ToolbarItems>-->
+
+		<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemCommand}">
+			<Grid Margin="20,35,20,20">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.25*" />
+					<ColumnDefinition Width="0.75*" />
+				</Grid.ColumnDefinitions>
+
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+
+				<Label Text="Get Notified:" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+				<Switch x:Name="swtNotify"  Grid.Column="1" VerticalOptions="Center" Toggled="NotifyToggled" />
+				<ScrollView Grid.Row="1" Grid.ColumnSpan="2">
+					<Label x:Name="lblInformation" Text="{Binding Source={x:Reference lblInformation}, Path=Information, Mode=TwoWay}">
+						<Label.Triggers>
+							<DataTrigger TargetType="Label"
+											 Binding="{Binding Mode=TwoWay, Source={x:Reference swtNotify}, Path=IsToggled}"
+													 Value="true">
+								<Setter Property="FontAttributes"
+											Value="Italic, Bold" />
+								<!--<Setter Property="FontSize"
+											Value="Large" />-->
+							</DataTrigger>
+						</Label.Triggers>
+					</Label>
+				</ScrollView>
+			</Grid>
+		</RefreshView>
+
+</ContentPage>
