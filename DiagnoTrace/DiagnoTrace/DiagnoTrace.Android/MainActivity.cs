@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Runtime;
 using Android.Content.PM;
+using Acr.UserDialogs;
 
 namespace DiagnoTrace.Droid
 {
@@ -21,6 +22,7 @@ namespace DiagnoTrace.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            UserDialogs.Init(this);
             LoadApplication(new App());
         }
 

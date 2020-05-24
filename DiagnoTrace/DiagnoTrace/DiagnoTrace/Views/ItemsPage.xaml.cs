@@ -63,8 +63,8 @@ namespace DiagnoTrace.Views
         {
             base.OnAppearing();
 
-            lblLongitude.Text = viewModel.Longitude.ToString();
-            lblLatitude.Text = viewModel.Latitude.ToString();
+            //lblLongitude.Text = viewModel.Longitude.ToString();
+            //lblLatitude.Text = viewModel.Latitude.ToString();
             //if (viewModel.Items.Count == 0)
             //    viewModel.IsBusy = true;
         }

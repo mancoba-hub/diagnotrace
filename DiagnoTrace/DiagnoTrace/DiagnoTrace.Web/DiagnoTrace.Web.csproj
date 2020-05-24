@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.442" />
+    <PackageReference Include="Corcav.Behaviors" Version="2.3.7" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.772" />
   </ItemGroup>
 

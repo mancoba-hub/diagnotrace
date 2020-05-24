@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 using DiagnoTrace.Models;
 using DiagnoTrace.Services;
+using Xamarin.Essentials;
 
 namespace DiagnoTrace.ViewModels
 {
@@ -14,7 +15,51 @@ namespace DiagnoTrace.ViewModels
     {
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
+        private bool _isNotConnected { get; set; }
+
+        public PermissionService _permissionService;
+
         bool isBusy = false;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BaseViewModel"/> class.
+        /// </summary>
+        public BaseViewModel()
+        {
+            _permissionService = new PermissionService();
+
+            // Handle connectivity
+            Connectivity.ConnectivityChanged += ConnectivityOnConnectivityChanged;
+            IsNotConnected = Connectivity.NetworkAccess != NetworkAccess.Internet;
+        }
+
+        /// <summary>
+        /// Finalizes an instance of the <see cref="BaseViewModel"/> class.
+        /// </summary>
+        ~BaseViewModel()
+        {
+            Connectivity.ConnectivityChanged -= ConnectivityOnConnectivityChanged;
+        }
+
+        /// <summary>
+        /// Connectivities the on connectivity changed.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="ConnectivityChangedEventArgs"/> instance containing the event data.</param>
+        private void ConnectivityOnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
+        {
+            IsNotConnected = e.NetworkAccess != NetworkAccess.Internet;
+        }
+
+        public bool IsNotConnected
+        {
+            get => _isNotConnected;
+            set
+            {
+                _isNotConnected = value;
+                OnPropertyChanged();
+            }
+        }
 
         /// <summary>
         /// Gets or sets a value indicating whether this instance is busy.

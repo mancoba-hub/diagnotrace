@@ -5,15 +5,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="DiagnoTrace.Views.SecondQuestionPage">
-	<ContentPage.Content>
-		<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Label Text="What are your symptoms?" FontSize="Medium" />
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Color x:Key="Primary">#2196F3</Color>
+			<Color x:Key="Accent">#96d1ff</Color>
+			<Color x:Key="LightTextColor">#999999</Color>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+				<ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+					<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+				</ContentView>
 			</StackLayout>
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Label Text=" " FontSize="Medium" />
-			</StackLayout>
-			<!--<Button x:Name="btnNext" Text="Next" Clicked="OnNextClicked" HorizontalOptions="Center"/>-->
 		</StackLayout>
-	</ContentPage.Content>
+		<ScrollView Grid.Row="1">
+			<StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+					<Label Text="What are your symptoms?" FontSize="Medium" />
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+					<Label Text=" " FontSize="Medium" />
+				</StackLayout>
+				<!--<Button x:Name="btnNext" Text="Next" Clicked="OnNextClicked" HorizontalOptions="Center"/>-->
+			</StackLayout>
+		</ScrollView>
+	</Grid>
 </ContentPage>

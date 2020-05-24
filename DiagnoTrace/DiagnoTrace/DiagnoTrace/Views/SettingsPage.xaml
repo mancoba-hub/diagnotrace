@@ -4,49 +4,60 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" Title="{Binding Title}"
+						 xmlns:controls="clr-namespace:DiagnoTrace.Controls"
              x:Class="DiagnoTrace.Views.SettingsPage">
-	
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
-	
-		<!--<ContentPage.ToolbarItems>
-			<ToolbarItem Text="Save" Clicked="SaveSettingsClicked" />
-    </ContentPage.ToolbarItems>-->
 
-		<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemCommand}">
-			<Grid Margin="20,35,20,20">
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="0.25*" />
-					<ColumnDefinition Width="0.75*" />
-				</Grid.ColumnDefinitions>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Color x:Key="Primary">#2196F3</Color>
+			<Color x:Key="Accent">#96d1ff</Color>
+			<Color x:Key="LightTextColor">#999999</Color>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
+	<RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemCommand}">
+		<Grid Margin="20,35,20,20" Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.25*" />
+				<ColumnDefinition Width="0.75*" />
+			</Grid.ColumnDefinitions>
 
-				<Label Text="Get Notified:" VerticalOptions="Center" VerticalTextAlignment="Center"/>
-				<Switch x:Name="swtNotify"  Grid.Column="1" VerticalOptions="Center" Toggled="NotifyToggled" />
-				<ScrollView Grid.Row="1" Grid.ColumnSpan="2">
-					<Label x:Name="lblInformation" Text="{Binding Source={x:Reference lblInformation}, Path=Information, Mode=TwoWay}">
-						<Label.Triggers>
-							<DataTrigger TargetType="Label"
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+
+			<!--  Header section  -->
+			<!--<controls:TitleBarView Grid.Row="0" />-->
+
+			<!--  Connection view  -->
+			<controls:ConnectionView Grid.Row="1" />
+			
+			<!--<StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+					<ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+						<Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="64" />
+					</ContentView>
+				</StackLayout>
+			</StackLayout>-->
+
+			<Label Text="Get Notified:" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+			<Switch x:Name="swtNotify"  Grid.Column="1" VerticalOptions="Center" Toggled="NotifyToggled" />
+			<ScrollView Grid.Row="2" Grid.ColumnSpan="2">
+				<Label x:Name="lblInformation" Text="{Binding Source={x:Reference lblInformation}, Path=Information, Mode=TwoWay}">
+					<Label.Triggers>
+						<DataTrigger TargetType="Label"
 											 Binding="{Binding Mode=TwoWay, Source={x:Reference swtNotify}, Path=IsToggled}"
 													 Value="true">
-								<Setter Property="FontAttributes"
+							<Setter Property="FontAttributes"
 											Value="Italic, Bold" />
-								<!--<Setter Property="FontSize"
+							<!--<Setter Property="FontSize"
 											Value="Large" />-->
-							</DataTrigger>
-						</Label.Triggers>
-					</Label>
-				</ScrollView>
-			</Grid>
-		</RefreshView>
+						</DataTrigger>
+					</Label.Triggers>
+				</Label>
+			</ScrollView>
+		</Grid>
+	</RefreshView>
 
 </ContentPage>

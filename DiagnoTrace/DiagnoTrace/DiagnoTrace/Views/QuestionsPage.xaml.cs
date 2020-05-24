@@ -63,7 +63,7 @@ namespace DiagnoTrace.Views
             //};
 
             var secondQuestionPage = new SecondQuestionPage();
-            secondQuestionPage.BindingContext = new { Gender = lblGender.Text, Age = txtAge.Text };
+            //secondQuestionPage.BindingContext = new { Gender = lblGender.Text, Age = txtAge.Text };
             Navigation.PushAsync(secondQuestionPage);
         }
 

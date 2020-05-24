@@ -3,13 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="DiagnoTrace.Views.ItemsPage"
+						 xmlns:b="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+             mc:Ignorable="d" x:Class="DiagnoTrace.Views.ItemsPage"
 						 xmlns:vm="clr-namespace:DiagnoTrace.ViewModels"
-             Title="{Binding Title}"
-             x:Name="BrowseItemsPage">
+						 xmlns:controls="clr-namespace:DiagnoTrace.Controls"	             
+             x:Name="BrowseItemsPage"
+						 BackgroundColor="{StaticResource GrayColor}"
+						 Visual="Material">
+<!--Title="{Binding Title}"-->
+	<b:Interaction.Behaviors>
+		<b:BehaviorCollection>
+			<b:EventToCommand Command="{Binding AppearingCommand}" EventName="Appearing" />
+		</b:BehaviorCollection>
+	</b:Interaction.Behaviors>
+	
+	<Grid RowSpacing="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
 
-			<ContentPage.BindingContext>
+		<!--  Header section  -->
+		<controls:TitleBarView Grid.Row="0" />
+		
+		<!--  Connection view  -->
+		<controls:ConnectionView Grid.Row="1" />
+
+		<ScrollView Grid.Row="2">
+			<StackLayout Margin="10" Spacing="15">
+				<Label FontAttributes="Bold" FontSize="25" HorizontalOptions="Start" Text="South Africa Statistics" />
+				
+				<!--  WorldWide Cases frame  -->
+				<Frame Style="{StaticResource DefaultFrame}">
+					<StackLayout Orientation="Vertical">
+						<StackLayout Orientation="Horizontal">
+							<Image HorizontalOptions="Start" Source="ic_edit" WidthRequest="30" />
+							<Label FontAttributes="Bold" FontSize="15" Text="Confirmed Cases" VerticalTextAlignment="Center" />
+							<Label FontAttributes="Bold" FontSize="20" Text="{Binding ConfirmedCases}" TextColor="{StaticResource ConfirmedColor}" VerticalTextAlignment="Center" />
+						</StackLayout>
+						
+						<StackLayout Orientation="Horizontal">
+							<Image HorizontalOptions="Start" Source="ic_recover" WidthRequest="30" />
+							<Label FontAttributes="Bold" FontSize="15" Text="Total Recovered" VerticalTextAlignment="Center" />
+							<Label FontAttributes="Bold" FontSize="20" Text="{Binding RecoveredCases}" TextColor="{StaticResource RecoverColor}" VerticalTextAlignment="Center" />
+						</StackLayout>
+						
+						<StackLayout Orientation="Horizontal">
+							<Image HorizontalOptions="Start" Source="ic_death_timer" WidthRequest="30" />
+							<Label FontAttributes="Bold" FontSize="15" Text="Total Deaths" VerticalTextAlignment="Center" />
+							<Label FontAttributes="Bold" FontSize="20" Text="{Binding DeadCases}" TextColor="{StaticResource SecondaryColor}" VerticalTextAlignment="Center" />
+						</StackLayout>
+					</StackLayout>
+				</Frame>
+				<Label FontAttributes="Italic" FontSize="12" HorizontalTextAlignment="Center" Text="{Binding LastUpdated}" TextColor="{StaticResource SecondaryColor}" VerticalTextAlignment="End" />
+			</StackLayout>
+		</ScrollView>
+	</Grid>
+	
+	<!--<ContentPage.BindingContext>
 				<vm:ItemsViewModel />
 			</ContentPage.BindingContext>
 
@@ -52,7 +104,7 @@
 						<Label Text="Latitude: " FontSize="Medium" />
 						<Label x:Name="lblLatitude" FontSize="Medium" />
 					</StackLayout>
-					<!--<Label>
+					--><!--<Label>
 						<Label.FormattedText>
 							<FormattedString>
 								<FormattedString.Spans>
@@ -61,11 +113,11 @@
 								</FormattedString.Spans>
 							</FormattedString>
 						</Label.FormattedText>
-					</Label>-->
+					</Label>--><!--
 				</StackLayout>
 				</ScrollView>
 			</Grid>
-		</RefreshView>
+		</RefreshView>-->
 	
 </ContentPage>
 
