@@ -1,12 +1,14 @@
-﻿using System;
-using System.Windows.Input;
+﻿using Xamarin.Forms;
 using Xamarin.Essentials;
-using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace DiagnoTrace.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AboutViewModel"/> class.
+        /// </summary>
         public AboutViewModel()
         {
             Title = "About";

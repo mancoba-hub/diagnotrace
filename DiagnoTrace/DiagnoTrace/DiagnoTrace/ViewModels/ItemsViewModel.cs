@@ -1,16 +1,13 @@
 ﻿using System;
+using System.Linq;
+using Xamarin.Forms;
+using Acr.UserDialogs;
+using DiagnoTrace.Views;
+using Xamarin.Essentials;
+using DiagnoTrace.Models;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-
-using Xamarin.Forms;
-
-using DiagnoTrace.Models;
-using DiagnoTrace.Views;
-using Xamarin.Essentials;
-using Acr.UserDialogs;
-using Newtonsoft.Json;
-using System.Linq;
 
 namespace DiagnoTrace.ViewModels
 {
@@ -35,8 +32,20 @@ namespace DiagnoTrace.ViewModels
         private string _recoveredCases;
         private string _lastUpdated;
 
+        /// <summary>
+        /// Gets the appearing command.
+        /// </summary>
+        /// <value>
+        /// The appearing command.
+        /// </value>
         public Command AppearingCommand => new Command(ExecuteFetchStatistics);
 
+        /// <summary>
+        /// Gets or sets the confirmed cases.
+        /// </summary>
+        /// <value>
+        /// The confirmed cases.
+        /// </value>
         public string ConfirmedCases
         {
             get => _confirmedCases;
@@ -47,6 +56,12 @@ namespace DiagnoTrace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the dead cases.
+        /// </summary>
+        /// <value>
+        /// The dead cases.
+        /// </value>
         public string DeadCases
         {
             get => _deadCases;
@@ -57,6 +72,12 @@ namespace DiagnoTrace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the recovered cases.
+        /// </summary>
+        /// <value>
+        /// The recovered cases.
+        /// </value>
         public string RecoveredCases
         {
             get => _recoveredCases;
@@ -67,6 +88,12 @@ namespace DiagnoTrace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Gets or sets the last updated.
+        /// </summary>
+        /// <value>
+        /// The last updated.
+        /// </value>
         public string LastUpdated
         {
             get => _lastUpdated;

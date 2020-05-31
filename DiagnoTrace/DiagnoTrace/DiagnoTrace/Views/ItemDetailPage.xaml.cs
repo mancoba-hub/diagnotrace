@@ -1,9 +1,6 @@
-﻿using System;
-using System.ComponentModel;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
+﻿using Xamarin.Forms;
 using DiagnoTrace.Models;
+using System.ComponentModel;
 using DiagnoTrace.ViewModels;
 
 namespace DiagnoTrace.Views
@@ -15,6 +12,10 @@ namespace DiagnoTrace.Views
     {
         ItemDetailViewModel viewModel;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDetailPage"/> class.
+        /// </summary>
+        /// <param name="viewModel">The view model.</param>
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
             InitializeComponent();
@@ -22,6 +23,9 @@ namespace DiagnoTrace.Views
             BindingContext = this.viewModel = viewModel;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ItemDetailPage"/> class.
+        /// </summary>
         public ItemDetailPage()
         {
             InitializeComponent();

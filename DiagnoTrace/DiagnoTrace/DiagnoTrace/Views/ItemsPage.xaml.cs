@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using DiagnoTrace.Models;
-using DiagnoTrace.Views;
+using System.ComponentModel;
 using DiagnoTrace.ViewModels;
-using Xamarin.Essentials;
 
 namespace DiagnoTrace.Views
 {
@@ -28,7 +20,8 @@ namespace DiagnoTrace.Views
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();            
+            BindingContext = viewModel = new ItemsViewModel();
+            //NavigationPage.SetHasBackButton(this, false);
         }
 
         /// <summary>

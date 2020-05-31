@@ -7,9 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnoTrace.Android", "Diag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnoTrace.iOS", "DiagnoTrace\DiagnoTrace.iOS\DiagnoTrace.iOS.csproj", "{65B00F7F-C011-49CD-B870-B5D6AC5D4275}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnoTrace.Web", "DiagnoTrace\DiagnoTrace.Web\DiagnoTrace.Web.csproj", "{0898649F-1022-4E3F-8E96-FDC1927C0093}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagnoTrace.Web", "DiagnoTrace\DiagnoTrace.Web\DiagnoTrace.Web.csproj", "{0898649F-1022-4E3F-8E96-FDC1927C0093}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnoTrace", "DiagnoTrace\DiagnoTrace\DiagnoTrace.csproj", "{3410F9EA-F157-4B8B-85EE-1706E6A82B8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagnoTrace", "DiagnoTrace\DiagnoTrace\DiagnoTrace.csproj", "{3410F9EA-F157-4B8B-85EE-1706E6A82B8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{52FDDDA3-163D-403E-B28A-E4F09C6102D6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

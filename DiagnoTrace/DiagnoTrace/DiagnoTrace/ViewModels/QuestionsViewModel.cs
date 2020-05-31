@@ -1,12 +1,9 @@
 ﻿using System;
+using Xamarin.Forms;
 using System.Diagnostics;
+using DiagnoTrace.Models;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
-
-using Xamarin.Forms;
-
-using DiagnoTrace.Models;
-using DiagnoTrace.Views;
 
 namespace DiagnoTrace.ViewModels
 {

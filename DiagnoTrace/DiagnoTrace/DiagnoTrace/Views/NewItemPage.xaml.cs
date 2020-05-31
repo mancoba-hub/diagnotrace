@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
 using DiagnoTrace.Models;
+using System.ComponentModel;
 
 namespace DiagnoTrace.Views
 {
@@ -15,6 +12,9 @@ namespace DiagnoTrace.Views
     {
         public Item Item { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewItemPage" /> class.
+        /// </summary>
         public NewItemPage()
         {
             InitializeComponent();
@@ -28,12 +28,22 @@ namespace DiagnoTrace.Views
             BindingContext = this;
         }
 
+        /// <summary>
+        /// Handles the Clicked event of the Save control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddItem", Item);
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Handles the Clicked event of the Cancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();

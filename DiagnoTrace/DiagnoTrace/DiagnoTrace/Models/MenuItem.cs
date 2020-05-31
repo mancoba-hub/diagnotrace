@@ -12,7 +12,7 @@ namespace DiagnoTrace.Models
         Settings,
         About
     }
-    public class HomeMenuItem
+    public class MenuItem
     {
         public MenuItemType Id { get; set; }
 

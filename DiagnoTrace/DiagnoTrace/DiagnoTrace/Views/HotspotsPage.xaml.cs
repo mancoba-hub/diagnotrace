@@ -1,15 +1,9 @@
-﻿using DiagnoTrace.Models;
-using DiagnoTrace.Services;
-using DiagnoTrace.ViewModels;
-using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DiagnoTrace.Models;
+using DiagnoTrace.Services;
+using DiagnoTrace.ViewModels;
 
 namespace DiagnoTrace.Views
 {
@@ -28,7 +22,7 @@ namespace DiagnoTrace.Views
 
             BindingContext = viewModel = new HotspotsViewModel();
 
-            conn = DependencyService.Get<ISQLiteDb>().GetConnection();
+            conn = DependencyService.Get<ISQLiteDb>().GetAsyncConnection();
             conn.CreateTableAsync<Hotspot>();
         }
 

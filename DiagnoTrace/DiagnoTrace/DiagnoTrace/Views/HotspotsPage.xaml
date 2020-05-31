@@ -20,7 +20,7 @@
 		</Grid.RowDefinitions>
 
 		<!--  Header section  -->
-		<controls:TitleBarView Grid.Row="0" />
+		<!--<controls:TitleBarView Grid.Row="0" />-->
 
 		<!--  Connection view  -->
 		<controls:ConnectionView Grid.Row="1" />

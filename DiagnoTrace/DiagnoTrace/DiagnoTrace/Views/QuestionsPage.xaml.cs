@@ -1,15 +1,10 @@
-﻿using DiagnoTrace.Models;
-using DiagnoTrace.Services;
-using DiagnoTrace.ViewModels;
-using SQLite;
+﻿using SQLite;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DiagnoTrace.Models;
+using DiagnoTrace.ViewModels;
+using DiagnoTrace.Interfaces;
 
 namespace DiagnoTrace.Views
 {
@@ -28,8 +23,8 @@ namespace DiagnoTrace.Views
 
             BindingContext = viewModel = new QuestionsViewModel();
 
-            conn = DependencyService.Get<ISQLiteDb>().GetConnection();
-            conn.CreateTableAsync<Question>();
+            //conn = DependencyService.Get<ISQLiteInterface>().GetAsyncConnection();
+            //conn.CreateTableAsync<Question>();
         }
 
         /// <summary>

@@ -10,14 +10,26 @@ namespace DiagnoTrace.Droid.Persistence
     public class SQLiteDb : ISQLiteDb
     {
         /// <summary>
+        /// Gets the asynchronous connection.
+        /// </summary>
+        /// <returns></returns>
+        public SQLiteAsyncConnection GetAsyncConnection()
+        {
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            var path = Path.Combine(documentsPath, "diagnoTrace.db3");
+            //var platform = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();            
+            return new SQLiteAsyncConnection(path);
+        }
+
+        /// <summary>
         /// Gets the connection.
         /// </summary>
         /// <returns></returns>
-        public SQLiteAsyncConnection GetConnection()
+        public SQLiteConnection GetConnection()
         {
-            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            var documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentsPath, "diagnoTrace.db3");
-            return new SQLiteAsyncConnection(path);
+            return new SQLiteConnection(path);
         }
     }
 }

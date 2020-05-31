@@ -1,8 +1,8 @@
 ﻿using Android.OS;
 using Android.App;
 using Android.Runtime;
-using Android.Content.PM;
 using Acr.UserDialogs;
+using Android.Content.PM;
 
 namespace DiagnoTrace.Droid
 {

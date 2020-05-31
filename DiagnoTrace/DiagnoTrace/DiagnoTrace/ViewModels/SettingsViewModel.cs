@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
+using System.Diagnostics;
 using DiagnoTrace.Models;
-using Xamarin.Forms.PlatformConfiguration;
+using System.Threading.Tasks;
 
 namespace DiagnoTrace.ViewModels
 {
@@ -20,6 +17,12 @@ namespace DiagnoTrace.ViewModels
 
         string deviceId = string.Empty;
 
+        /// <summary>
+        /// Gets the device identifier.
+        /// </summary>
+        /// <value>
+        /// The device identifier.
+        /// </value>
         public string DeviceId
         {
             get
@@ -59,7 +62,6 @@ namespace DiagnoTrace.ViewModels
         /// <summary>
         /// Executes the load items command.
         /// </summary>
-        /// <returns></returns>
         async Task ExecuteLoadItemCommand()
         {
             IsBusy = true;
@@ -77,6 +79,9 @@ namespace DiagnoTrace.ViewModels
             }
         }
 
+        /// <summary>
+        /// Executes the save command.
+        /// </summary>
         async Task ExecuteSaveCommand()
         {
             IsBusy = true;

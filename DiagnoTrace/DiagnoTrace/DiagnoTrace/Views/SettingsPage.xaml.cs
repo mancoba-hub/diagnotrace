@@ -31,7 +31,7 @@ namespace DiagnoTrace.Views
 
             Information = "You will NOT get notifications";
 
-            conn = DependencyService.Get<ISQLiteDb>().GetConnection();
+            conn = DependencyService.Get<ISQLiteDb>().GetAsyncConnection();
             conn.CreateTableAsync<Setting>();
 
             IsToggled = viewModel.Setting.CanNotify;
